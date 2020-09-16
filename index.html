@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Selector</title>
+</head>
+<body>
+    
+        <div id="people">
+
+        </div>
+
+
+    <script>
+        let people = ['Tosho', 'Toibat', 'Adisa', 'Alaba', 'Yusuf', 'Arinola']
+        
+        shuffle(people);
+
+        people.forEach(function(el, index){
+            var node = document.createElement("H1");                 // Create a <li> node
+            var textnode = document.createTextNode( (index + 1) + " " + el);         // Create a text node
+            node.appendChild(textnode);                              // Append the text to <li>
+            document.getElementById("people").appendChild(node);     // Append <li> to <ul> with id="myList" 
+        })
+        
+        console.log(people);
+
+        function shuffle(array) {
+                var currentIndex = array.length, temporaryValue, randomIndex;
+            
+                // While there remain elements to shuffle...
+                while (0 !== currentIndex) {
+            
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+            
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+                }
+            
+                return array;
+            }
+    </script>
+
+
+ 
+</body>
+</html>
