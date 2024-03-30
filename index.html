@@ -4,22 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Selector</title>
+    <style>
+        body{
+            padding: 40px;
+            background-color: #f7f9f9;
+        }
+        .container{
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        li{
+            list-style-type: none;
+            text-align: center;
+            background-color: #00a676;
+            padding: 10px 40px;
+            border-radius: 10px;
+            color: #DCF763;
+            font-weight: bolder;
+            font-size: 25px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
 </head>
 <body>
+
+    <div class="container">
+
+        <div>
+            <!-- <button id="suffle">Shuffle</button> -->
+            <ul id="people">
     
-        <div id="people">
-
+            </ul>
         </div>
+    </div>
 
-
+    <script src="confetti.js"></script>
     <script>
-        let people = ['Tosho', 'Toibat', 'Adisa', 'Alaba', 'Yusuf', 'Arinola', 'Alhaji Haji', 'Adeshina', 'Mustapha', 'Adeshina']
+        let people = ['Tosho', 'Toibat', 'Adisa', 'Alaba', 'Yusuf', 'Arinola', 'Alhaji Haji', 'Adeshina 1', 'Mustapha', 'Adeshina 2']
         
         shuffle(people);
 
         people.forEach(function(el, index){
-            var node = document.createElement("H1");                 // Create a <li> node
-            var textnode = document.createTextNode( (index + 1) + " " + el);         // Create a text node
+            var node = document.createElement("li");                 // Create a <li> node
+            var textnode = document.createTextNode( (index + 1) + ". " + el);         // Create a text node
             node.appendChild(textnode);                              // Append the text to <li>
             document.getElementById("people").appendChild(node);     // Append <li> to <ul> with id="myList" 
         })
@@ -44,6 +77,26 @@
             
                 return array;
             }
+        
+    
+        // for starting the confetti 
+
+        const start = () => {
+            setTimeout(function() {
+                confetti.start()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+
+        //  for stopping the confetti 
+
+        const stop = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        start();
+        // stop();
+
     </script>
 
 
